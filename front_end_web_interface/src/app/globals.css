@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&family=Hanalei+Fill&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-p-white: #F8F8F8;
+  --color-p-orange: #FF894C;
+  --color-p-red: #DC2F2F;
+  --color-p-black: #363636;
+
+  --font-playful: "Freckle Face", serif;
+
+
 }
 
 :root {
