@@ -1,11 +1,11 @@
-import LayoutApp from "./component/layout/layout_app";
+import { redirect } from "next/navigation";
 
 export default function Home() {
+  redirect("/simulation")
 
 
   return (
-    <LayoutApp>
+   
       <></>
-    </LayoutApp>
   );
 }
