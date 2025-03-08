@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 const Sider = ({data,callData,run}) => {
     {/* gird preview */}
-    let arr:number[] = []
+    let arr = []
     const [currentGrid,setCurrentGrid] = useState(5)
     const [start,setStart] = useState([])
     arr = Array.from({ length: currentGrid * currentGrid }, (_, i) => i + 1);
