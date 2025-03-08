@@ -1,0 +1,9 @@
+{
+    "gridSize": 30,
+    "moisture": 40.0,
+    "step": 30,
+    "windDirection": "W",
+    "windStrength": 1.0,
+    "airTemperature": 45.0,
+    "fireStarts": [[5, 5], [15, 15], [25, 25]]
+}
