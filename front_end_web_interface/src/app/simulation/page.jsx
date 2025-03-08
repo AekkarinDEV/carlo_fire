@@ -85,11 +85,11 @@ const Page = () => {
                       return <div key={index} className='w-full bg-amber-100 grid' style={{gridTemplateColumns: `repeat(${[para.gridSize]},1fr)`}}>
                         {n.map((x,index)=>{
                           if(x === 1){
-                            return <div key={index} className='bg-yellow-200'></div>
+                            return <div key={index} className='bg-green-700'></div>
                           }else if(x=== 2){
-                            return <div key={index} className='bg-red-200'></div>
+                            return <div key={index} className='bg-red-400'></div>
                           }else{
-                            return <div key={index} className='bg-gray-800'></div>
+                            return <div key={index} className='bg-red-950'></div>
                           }
                         })}
                       </div>
