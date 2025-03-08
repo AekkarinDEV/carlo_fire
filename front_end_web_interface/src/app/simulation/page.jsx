@@ -21,12 +21,12 @@ const Page = () => {
     fireStarts: []
   });
 
-  useEffect(() => {
-    console.log(para);
-  }, [para]);
+  // useEffect(() => {
+  //   console.log(para);
+  // }, [para]);
 
   const simulate = async () => {
-    alert("call");
+    // alert("call");
 
     let newStartArr = [];
     newStartArr = []
@@ -40,7 +40,7 @@ const Page = () => {
       newStartArr.push([r, c]);
     });
 
-    console.log(process.env.REACT_APP_BACK);
+    // console.log(process.env.REACT_APP_BACK);
 
     try {
       const apiResult = await axios.post(
@@ -56,7 +56,7 @@ const Page = () => {
         }
       );
 
-      console.log(apiResult.status);
+      // console.log(apiResult.status);
       if (apiResult.status === 200) {
         setRunResult({
           called: true,
@@ -64,7 +64,7 @@ const Page = () => {
         });
       }
 
-      runResult.arr.map(item=> console.log(item))
+      // runResult.arr.map(item=> console.log(item))
     } catch (error) {
       console.error("Error fetching simulation:", error);
     }
