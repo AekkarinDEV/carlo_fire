@@ -73,30 +73,39 @@ const Page = () => {
     <div className="w-screen h-screen flex">
       <main className="w-2/3 overflow-y-scroll">
         {runResult.called ? (
-          <div className="w-full min-h-full flex flex-col justify-center items-center gap-20 ">
+          <div className="w-full min-h-full flex flex-col items-center gap-20 ">
             <br />
             <br />
             <br />
             <br />
-            {runResult.arr.map((i,index)=>{
-              return <div key={index} className="w-96 h-96 border-2 border-black grid" style={{gridTemplateColumns: `repeat(1,1fr)`}}>
-                  {
-                    i.map((n,index)=>{
-                      return <div key={index} className='w-full bg-amber-100 grid' style={{gridTemplateColumns: `repeat(${[para.gridSize]},1fr)`}}>
-                        {n.map((x,index)=>{
-                          if(x === 1){
-                            return <div key={index} className='bg-green-700'></div>
-                          }else if(x=== 2){
-                            return <div key={index} className='bg-red-400'></div>
-                          }else{
-                            return <div key={index} className='bg-red-950'></div>
-                          }
-                        })}
-                      </div>
-                    })
-                  }
+            <div className='min-w-full'>
+              <div className='min-w-full flex gap-16 '>
+                {runResult.arr.map((i,index)=>{
+                if((index + 1) % (para.step / 10) === 0 || index === 0 && index !== para.step){
+                  return <div key={index} className="w-96 h-96 border-2 border-black grid" style={{gridTemplateColumns: `repeat(1,1fr)`}}>
+                      {
+                        i.map((n,index)=>{
+                          return <div key={index} className='w-full bg-amber-100 grid' style={{gridTemplateColumns: `repeat(${[para.gridSize]},1fr)`}}>
+                            {n.map((x,index)=>{
+                              if(x === 1){
+                                return <div key={index} className='bg-green-400'></div>
+                              }else if(x=== 2){
+                                return <div key={index} className='bg-orange-400'></div>
+                              }else{
+                                return <div key={index} className='bg-amber-950'></div>
+                              }
+                            })}
+                          </div>
+                        })
+                      }
+                  </div>
+                }
+                })}
               </div>
-            })}
+            </div>
+
+
+            //d3 ตรงนี้
           </div>
         ) : (
           <div className="flex justify-center items-center w-full h-full">
