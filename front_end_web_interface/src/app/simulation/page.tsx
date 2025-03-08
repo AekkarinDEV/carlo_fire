@@ -28,6 +28,7 @@ const Page = () => {
     alert("call");
 
     let newStartArr = [];
+    newStartArr = []
 
     para.fireStarts.forEach((x) => {
       const r = Math.floor(x / para.gridSize);

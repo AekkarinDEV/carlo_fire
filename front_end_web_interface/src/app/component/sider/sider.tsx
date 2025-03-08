@@ -3,12 +3,10 @@ import React, { useState, useEffect } from 'react'
 
 const Sider = ({data,callData,run}) => {
     {/* gird preview */}
+    let arr:number[] = []
     const [currentGrid,setCurrentGrid] = useState(5)
     const [start,setStart] = useState([])
-    const arr:number[] = []
-    for(let i = 1; i <= currentGrid * currentGrid; i++){
-       arr.push(i)
-    }
+    arr = Array.from({ length: currentGrid * currentGrid }, (_, i) => i + 1);
     const sizeChange = (e) => {
         setCurrentGrid(e.target.value)
         data({
@@ -30,11 +28,6 @@ const Sider = ({data,callData,run}) => {
 
     const nodeClick = (e) => {
         const v = parseInt(e.target.value);
-        const r = Math.floor(v / currentGrid);
-        let c = v % currentGrid - 1;
-        if (c === -1) { c = currentGrid; }
-        const combine = [c, v];
-    
         setStart((prevStart) => {
              if (prevStart.includes(v)) {
                 return prevStart.filter(item => item !== v);
