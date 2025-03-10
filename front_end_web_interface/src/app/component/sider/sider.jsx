@@ -9,21 +9,7 @@ const Sider = ({data,callData,run}) => {
     arr = Array.from({ length: currentGrid * currentGrid }, (_, i) => i + 1);
     const sizeChange = (e) => {
         setCurrentGrid(e.target.value)
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
         setStart([])
-        run({
-            called: false,
-            arr: []
-          })
-       
     }
 
     const nodeClick = (e) => {
@@ -38,24 +24,8 @@ const Sider = ({data,callData,run}) => {
     
         // Toggle background color
         e.target.style.backgroundColor = e.target.style.backgroundColor === "red" ? "" : "red";
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-
-        run({
-            called: false,
-            arr: []
-          })
     };
-    useEffect(() => {
-        console.log(start);
-    }, [start]);
+    
 
     // duration
     const [hour,setHour] = useState(0)
@@ -67,38 +37,11 @@ const Sider = ({data,callData,run}) => {
             return
         }
         setHour(hour + 1)
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-          })
     }
     const lessHour = () =>{
         if(hour > 0){
             setHour(hour - 1)
         }
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-
-        run({
-            called: false,
-            arr: []
-          })
     }
     const moreMin = () =>{
         if(min == 50){
@@ -106,37 +49,11 @@ const Sider = ({data,callData,run}) => {
             return
         }
         setMin(min + 10)
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-        })
     }
     const lessMin = () =>{
         if(min >= 10){
             setMin(min - 10)
         }
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-        })
     }
 
     //moisture level
@@ -144,19 +61,6 @@ const Sider = ({data,callData,run}) => {
 
     const moistureChange = (e) => {
         setMoisture(e.target.value)
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-        })
     }
 
     //windStrength
@@ -164,19 +68,6 @@ const Sider = ({data,callData,run}) => {
 
     const windStrengthChange = (e) => {
         setWindLevel(e.target.value /10)
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-        })
     }
     
     //temp level
@@ -184,19 +75,6 @@ const Sider = ({data,callData,run}) => {
 
     const TempChange = (e) => {
         setTempLevel(e.target.value)
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-        })
     }
 
     //wind direct
@@ -204,57 +82,22 @@ const Sider = ({data,callData,run}) => {
 
     const north = () => {
         setWinDirect("N")
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-        })
     }
 
     const south = () => {
         setWinDirect("S")
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-        })
     }
     
     const east = () => {
         setWinDirect("E")
-        data({
-            "gridSize": currentGrid,
-            "moisture": moisture,
-            "step": min + 60 * hour,
-            "windDirection": windDirect,
-            "windStrength": windLevel,
-            "airTemperature": tempLevel,
-            "fireStarts": start
-        })
-        run({
-            called: false,
-            arr: []
-        })
     }
     
     const west = () => {
         setWinDirect("W")
+
+    }
+
+    useEffect(()=> {
         data({
             "gridSize": currentGrid,
             "moisture": moisture,
@@ -268,7 +111,7 @@ const Sider = ({data,callData,run}) => {
             called: false,
             arr: []
         })
-    }
+    },[currentGrid,moisture,min,hour,windDirect,windLevel,tempLevel,start])
 
 
   return (

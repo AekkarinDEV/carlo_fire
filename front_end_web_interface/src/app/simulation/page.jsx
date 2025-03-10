@@ -167,7 +167,7 @@ const Page = () => {
       .call(d3.axisBottom(xLine).ticks(para.step).tickFormat(d3.format("d"))) // แสดงตัวเลขในรูปแบบของ integer
       .attr('font-size', '12px')
       .selectAll("text") // เลือก text ของ Y-axis
-      .style("fill", "black");
+      .style("fill", "white");
 
       
 
@@ -193,7 +193,7 @@ const Page = () => {
       .attr("x", width + margin.left + margin.right - 20)
       .attr("y", height + margin.top + margin.bottom - 10)
       .style("font-size", "14px")
-      .text(`Step(every ${para.step/10}  min.)`);
+      .text(`min`);
 
     // เพิ่ม tooltip สำหรับการแสดงข้อมูลเมื่อวางเมาส์
     const tooltip = d3.select("#line-chart-svg")
@@ -239,7 +239,7 @@ const Page = () => {
                 {runResult.arr.map((i,index)=>{
                 if((index + 1) % (para.step / 10) === 0 || index === 0 && index !== para.step){
 
-                  return <div>
+                  return <div key={`k${index}`}>
                    <p className='text-p-black font-prompt'>{`Minute: ${index +1}`}</p>
                     <div key={index} className="w-96 h-96 border-2 border-black grid" style={{gridTemplateColumns: `repeat(1,1fr)`}}>
                         {
@@ -247,11 +247,11 @@ const Page = () => {
                             return <div key={index} className='w-full bg-amber-100 grid' style={{gridTemplateColumns: `repeat(${[para.gridSize]},1fr)`}}>
                               {n.map((x,index)=>{
                                 if(x === 1){
-                                  return <div key={index} className='bg-green-400'></div>
+                                  return <div key={index} className='bg-green-300 border-[0.1px] border-green-400'></div>
                                 }else if(x=== 2){
-                                  return <div key={index} className='bg-orange-400'></div>
+                                  return <div key={index} className='bg-amber-300'></div>
                                 }else{
-                                  return <div key={index} className='bg-amber-950'></div>
+                                  return <div key={index} className='bg-red-400'></div>
                                 }
                               })}
                             </div>
